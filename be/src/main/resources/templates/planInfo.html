@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title th:text="${title}"></title>
+		<style type="text/css">
+			div {
+				margin-bottom: 25px;
+			}
+			img{
+				border-radius: 50px;
+				height: 35px;
+			}
+			#infos div{
+				border-bottom: 1px solid #e5e5e5;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<h4>这是我在慧打卡的计划，快来一起打卡吧~</h4>
+		</div>
+		<div style="display: flex;margin-top: 25px;">
+			<img src="/imgs/LOGO.png" />
+			<div style="margin-top: 7px;margin-left: 10px;"><span th:text="${username}"></span></div>
+		</div>
+		<div id="infos"  th:each="plan : ${planList}">
+			<div><span>计划名称：</span><span th:text="${plan.name}"></span></div>
+			<div><span>执行日：</span><span th:text="${plan.executeWeek}"></span></div>
+			<div><span>备注：</span><span th:text="${plan.detail}"></span></div>
+		</div>
+	</body>
+</html>
